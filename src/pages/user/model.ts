@@ -9,7 +9,7 @@ const Model: IModel<IUserState> = {
   namespace: 'user',
 
   state: {
-    name: 'unknown',
+    name: '',
   },
 
   effects: {

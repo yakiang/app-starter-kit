@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect, ConnectProps, IUserState } from 'umi';
+import { Button } from '@mui/material';
+import { VerifiedUserOutlined } from '@mui/icons-material';
 import styles from './index.scss';
 
 interface IUserProps extends ConnectProps {
@@ -7,17 +9,22 @@ interface IUserProps extends ConnectProps {
 }
 
 const User: React.FC<IUserProps> = ({ user, dispatch }) => {
-  useEffect(() => {
+  const handleClick = () =>
     dispatch?.({
       type: 'user/eGetMyself',
       payload: {},
     });
-  }, []);
 
   return (
     <div>
       <h1>Who am I?</h1>
-      <p className={styles.name}>{user.name}</p>
+      {user.name ? (
+        <p className={styles.name}>{user.name}</p>
+      ) : (
+        <Button onClick={handleClick} variant="contained">
+          <VerifiedUserOutlined />
+        </Button>
+      )}
     </div>
   );
 };
