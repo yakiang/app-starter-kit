@@ -1,0 +1,24 @@
+@import '~antd/dist/antd.css';
+
+html {
+  font-size: 62.5%; // 10px
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .username {
+    min-width: 6.4rem;
+    margin-left: 2rem;
+    color: white;
+  }
+}
+
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+}
