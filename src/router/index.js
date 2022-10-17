@@ -1,19 +1,31 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import Layout from "../layouts";
 import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "home",
-    component: Home,
-  },
-  {
     path: "/login",
     name: "login",
     component: () => import("../views/Login.vue"), // 异步加载
+  },
+  // {
+  //   path: '/404',
+  //   component: () => import('@/views/404'),
+  //   hidden: true
+  // },
+  {
+    path: "/",
+    component: Layout,
+    children: [
+      {
+        path: "home",
+        name: "home",
+        component: Home,
+      },
+    ],
   },
 ];
 

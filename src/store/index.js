@@ -1,9 +1,13 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import user from "./modules/user";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  modules: {
+    user,
+  },
   state: {
     user: {},
   },
@@ -12,7 +16,7 @@ export default new Vuex.Store({
   },
   mutations: {
     login(state, payload) {
-      state.user = { name: payload };
+      state.user = { name: payload.username };
     },
     logout(state) {
       state.user = {};

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import NavMenu from "./Menu.vue";
+import NavMenu from "../components/Menu.vue";
 
 export default {
   name: "NavBar",
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     logout() {
-      this.$store.dispatch("logout");
+      this.$store.dispatch("user/logout");
     },
   },
 };
