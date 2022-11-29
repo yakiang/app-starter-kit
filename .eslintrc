@@ -22,7 +22,17 @@
     "react/function-component-definition": "off",
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
     "react/prop-types": "off",
     "react/button-has-type": "off",
     "import/no-extraneous-dependencies": [
@@ -37,6 +47,13 @@
         ]
       }
     ],
-    "prettier/prettier": ["error"]
-  }
+    "prettier/prettier": [
+      "error"
+    ]
+  },
+  "ignorePatterns": [
+    "public",
+    "build",
+    "vite.config.ts"
+  ]
 }
