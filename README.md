@@ -1,4 +1,4 @@
-# umi project
+`React` + `TS` + `Umi` + `Redux` + `Antd` + `i18n`
 
 ## Getting Started
 
