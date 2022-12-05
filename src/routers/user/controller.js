@@ -5,8 +5,8 @@ const router = new Router({
   prefix: `${config.apiPrefix}/user`,
 });
 
-router.get('/me', async ctx => {
-  ctx.body = ctx.request.path
+router.get('/:name', async ctx => {
+  ctx.body = ctx.request.params.name;
 });
 
 module.exports = router;
