@@ -6,6 +6,7 @@ const router = new Router({
 });
 
 router.get('/:name', async (ctx) => {
+  ctx.logger.info(ctx.request.method, ctx.request.path);
   ctx.body = ctx.request.params.name;
 });
 

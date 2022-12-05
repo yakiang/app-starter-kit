@@ -19,7 +19,3 @@ Build the project,
 ```bash
 $ yarn build
 ```
-
-## TODO
-
-- Logging

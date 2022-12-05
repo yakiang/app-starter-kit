@@ -9,7 +9,9 @@
     "esbuild-node-externals": "^1.5.0",
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
-    "koa-router": "^12.0.0"
+    "koa-router": "^12.0.0",
+    "winston": "^3.8.2",
+    "winston-daily-rotate-file": "^4.7.1"
   },
   "devDependencies": {
     "eslint": "^8.29.0",
@@ -39,15 +41,16 @@
   },
   "prettier": {
     "printWidth": 120,
-    "singleQuote": true
+    "singleQuote": true,
+    "trailing-comma": "all"
   },
   "lint-staged": {
     "*.{md,json}": [
       "prettier --write"
     ],
     "*.js": [
-      "eslint --fix",
-      "prettier --write"
+      "prettier --write",
+      "eslint --fix"
     ]
   }
 }
