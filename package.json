@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "node-dev --respawn ./src/index.js"
+    "dev": "node-dev --respawn ./src/index.js",
+    "prepare": "husky install"
   },
   "dependencies": {
     "koa": "^2.13.4",
@@ -8,6 +9,41 @@
     "koa-router": "^12.0.0"
   },
   "devDependencies": {
-    "node-dev": "^7.4.3"
+    "eslint": "^8.29.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
+    "node-dev": "^7.4.3",
+    "prettier": "^2.8.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "commonjs": true,
+      "es2021": true,
+      "node": true
+    },
+    "extends": "airbnb/base",
+    "overrides": [],
+    "parserOptions": {
+      "ecmaVersion": "latest"
+    },
+    "rules": {
+      "no-restricted-syntax": "off",
+      "no-promise-executor-return": "off"
+    }
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true
+  },
+  "lint-staged": {
+    "*.{md,json}": [
+      "prettier --write"
+    ],
+    "src/**/*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

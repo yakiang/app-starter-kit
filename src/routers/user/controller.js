@@ -5,7 +5,7 @@ const router = new Router({
   prefix: `${config.apiPrefix}/user`,
 });
 
-router.get('/:name', async ctx => {
+router.get('/:name', async (ctx) => {
   ctx.body = ctx.request.params.name;
 });
 
