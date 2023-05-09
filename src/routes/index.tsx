@@ -2,18 +2,18 @@ import React, { FunctionComponent, lazy, Suspense } from 'react';
 import { Spin } from 'antd';
 import { Routes, Route } from 'react-router-dom';
 
-import Home from './Home';
+import Records from './List';
 
-const About = lazy(() => import('./About'));
+const AddRecord = lazy(() => import('./Plus'));
 
 const Router: FunctionComponent = () => (
   <Routes>
-    <Route path="/" element={<Home />} />
+    <Route path="/" element={<Records />} />
     <Route
-      path="about"
+      path="plus"
       element={
         <Suspense fallback={<Spin />}>
-          <About />
+          <AddRecord />
         </Suspense>
       }
     />
