@@ -12,11 +12,11 @@ const PlusRecord: React.FC = () => {
     try {
       const values = form.getFieldsValue(true);
       await axios.post('/paji/koa/api/records/item', {
-        date: values.date?.format('yyyy-MM-DD-HH-mm'),
+        date: `${values.date?.format('yyyy-MM-DD')}-${values.time?.format('HH-mm')}`,
         duration: values.duration,
         location: {},
         protection: values.protected,
-        note: `${values.rating}分, ${values.note}`,
+        note: `${values.rating}分 ${values.note || ''}`,
         activities: [{ name: 'Sex' }],
       });
       message.success('已记录');
