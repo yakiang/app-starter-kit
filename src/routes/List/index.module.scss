@@ -1,4 +1,20 @@
 .records {
+  .stats {
+    margin-bottom: 20px;
+  }
+  .stat {
+    border: solid 1px lightgrey;
+    padding: 12px;
+  }
+
+  .list {
+    padding-left: 12px;
+  }
+  .item {
+    color: gray;
+    margin: 4px 12px;
+  }
+
   .plus {
     position: absolute;
     right: 10vw;
