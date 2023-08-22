@@ -1,12 +1,15 @@
-import { Button, DatePicker, Form, Input, InputNumber, Rate, Switch, TimePicker, message } from 'antd';
+import { Button, DatePicker, Form, Input, InputNumber, Rate, Row, Switch, TimePicker, message } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
 import axios from 'axios';
 import React, { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from './index.module.scss';
 
 const { Item } = Form;
 
 const PlusRecord: React.FC = () => {
   const [form] = useForm();
+  const navigate = useNavigate();
 
   const submit = useCallback(async () => {
     try {
@@ -16,43 +19,45 @@ const PlusRecord: React.FC = () => {
         duration: values.duration,
         location: {},
         protection: values.protected,
-        note: `${values.rating}分 ${values.note || ''}`,
+        note: `${values.rating}/5 ${values.note || ''}`,
         activities: [{ name: 'Sex' }],
       });
-      message.success('已记录');
+      message.success('已记录', () => navigate('/', { replace: true }));
     } catch (err: any) {
       message.error(err.message);
     }
   }, [form]);
 
   return (
-    <Form form={form} onFinish={submit}>
+    <Form form={form} onFinish={submit} className={styles.plus}>
       <Item label="日期" name="date">
-        <DatePicker />
+        <DatePicker size="large" className={styles.input} />
       </Item>
       <Item label="时间" name="time">
-        <TimePicker format="HH:mm" />
+        <TimePicker size="large" format="HH:mm" className={styles.input} popupStyle={{ fontSize: 20 }} />
       </Item>
       <Item label="时长" name="duration">
-        <InputNumber precision={0} min={1} addonAfter="分钟" />
+        <InputNumber size="large" precision={0} min={1} addonAfter="分钟" className={styles.input} />
       </Item>
       <Item label="地点" name="location">
-        <Input />
+        <Input size="large" className={styles.input} />
       </Item>
       {/* <Item label="伴侣" name="partner">
         <Input />
       </Item> */}
-      <Item label="保护" name="protected">
-        <Switch defaultChecked={false} />
-      </Item>
-      <Item label="评分" name="rating">
-        <Rate />
-      </Item>
       <Item label="备注" name="note">
-        <Input />
+        <Input size="large" />
       </Item>
+      <Row justify="space-around">
+        <Item label="保护" name="protected">
+          <Switch defaultChecked={false} />
+        </Item>
+        <Item label="评分" name="rating">
+          <Rate />
+        </Item>
+      </Row>
       <Item>
-        <Button type="primary" htmlType="submit">
+        <Button size="large" className={styles.input} type="primary" htmlType="submit">
           提交
         </Button>
       </Item>
